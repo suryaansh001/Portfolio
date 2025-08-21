@@ -60,6 +60,20 @@ This project is configured for easy deployment on Vercel. To deploy your own ver
 
 Vercel will automatically deploy your portfolio and provide you with a live URL.
 
+### Troubleshooting Deployment Issues
+
+If you encounter build failures due to package installation timeouts:
+
+1. **Network Timeout Issues**: The project includes a `.npmrc` file with retry configurations to handle npm registry timeouts
+2. **Lockfile Issues**: If you see "lockfile is not up to date" errors, run `pnpm install` locally and commit the updated `pnpm-lock.yaml`
+3. **Dependency Conflicts**: Ensure all dependencies in `package.json` are compatible with each other
+
+### Alternative Deployment Options
+
+- **Netlify**: Import your repository and deploy with automatic builds
+- **GitHub Pages**: Use GitHub Actions for static deployment
+- **Railway**: Simple deployment with automatic builds from GitHub
+
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements, please open an issue or submit a pull request.
