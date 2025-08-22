@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-
+import SplashCursor from '@/components/ui/SplashCursor'
 export const metadata: Metadata = {
   title: 'Suryaansh Sharma',
   description: 'Portfolio website',
