@@ -3,8 +3,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Suryaansh Sharma',
-  description: 'Portfolio websote',
+  description: 'Portfolio website',
   generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
