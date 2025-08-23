@@ -7,7 +7,6 @@ import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
-import SplashCursor from "@/components/ui/SplashCursor"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
@@ -397,7 +396,6 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
-      <SplashCursor />
       <ScrollProgress />
       <FloatingNav />
 
@@ -824,25 +822,18 @@ export default function Portfolio() {
             </div>
 
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.146 0h1.708v17.98h-1.708zm0 19.63h1.708V24h-1.708z"/>
-                <path d="M5.73 6.146v1.708h12.54V6.146z"/>
-                <path d="M5.73 16.146v1.708h12.54v-1.708z"/>
-              </svg>
+              <img src="/django.png" alt="Django" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
               <span className="text-xs sm:text-sm font-medium text-gray-300">Django</span>
             </div>
 
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-red-500 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm-.615 19.286c-4.027 0-7.286-3.26-7.286-7.286s3.26-7.286 7.286-7.286S18.671 7.973 18.671 12s-3.26 7.286-7.286 7.286z"/>
-              </svg>
+              <img src="/flask.png" alt="Flask" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
               <span className="text-xs sm:text-sm font-medium text-gray-300">Flask</span>
             </div>
 
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-teal-500 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm-1.542 5.965L12 5.5l1.542.465 1.19 3.56H9.268l1.19-3.56zM8.12 10.5h7.76l-1.189 3.56H9.309L8.12 10.5zm3.88 8.035L10.458 18l-1.542-.465-1.19-3.56h5.548l-1.19 3.56L12 18.535z"/>
-              </svg>
+              <img src="/fastapi.png" alt="Fasztapi" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
+              
               <span className="text-xs sm:text-sm font-medium text-gray-300">FastAPI</span>
             </div>
 
@@ -864,23 +855,18 @@ export default function Portfolio() {
 
             {/* AI/ML */}
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c6.628 0 12 5.373 12 12 0 6.628-5.372 12-12 12C5.372 24 0 18.627 0 12S5.372 0 12 0zm4.441 16.892c-2.102.144-6.784.144-8.883 0C5.282 16.736 4 15.622 4 12s1.282-4.736 3.558-4.892c2.099-.144 6.781-.144 8.883 0C18.718 7.264 20 8.378 20 12s-1.282 4.736-3.559 4.892z"/>
-              </svg>
+             <img src="/tf.png" alt="Tensorflow" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
               <span className="text-xs sm:text-sm font-medium text-gray-300">TensorFlow</span>
             </div>
 
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-red-600 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 7.178l-2.12 2.12a1.414 1.414 0 01-2 0L12 7.85 10.552 9.298a1.414 1.414 0 01-2 0l-2.12-2.12a1.414 1.414 0 010-2L7.85 3.76a1.414 1.414 0 012 0L12 6.208 14.15 4.06a1.414 1.414 0 012 0l1.418 1.418a1.414 1.414 0 010 2z"/>
-              </svg>
+              <img src="/pytorch.png" alt="Tensorflow" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
+              
               <span className="text-xs sm:text-sm font-medium text-gray-300">PyTorch</span>
             </div>
 
             <div className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 group">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm0 4.5l7.392 4.5v9L12 22.5 4.608 18v-9L12 4.5z"/>
-              </svg>
+              <img src="/langchain.png" alt="LangChain" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
               <span className="text-xs sm:text-sm font-medium text-gray-300">LangChain</span>
             </div>
 
