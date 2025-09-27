@@ -82,11 +82,11 @@ const TypingHero = () => {
   }, []);
 
   return (
-    <p className="text-lg sm:text-xl text-zinc-400 max-w-[600px] mx-auto lg:mx-0 min-h-[3.5rem] flex items-center">
-      <span>
+    <p className="text-base sm:text-lg lg:text-xl text-zinc-400 max-w-full lg:max-w-[600px] mx-auto lg:mx-0 min-h-[3rem] sm:min-h-[3.5rem] flex items-center break-words">
+      <span className="leading-relaxed">
         <span className="text-white">{staticText}</span>
         {currentText}
-        <span className={`inline-block w-0.5 h-6 bg-purple-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}></span>
+        <span className={`inline-block w-0.5 h-5 sm:h-6 bg-purple-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}></span>
       </span>
     </p>
   );
@@ -249,7 +249,7 @@ export default function Portfolio() {
       title: "University Placement Portal",
       description: "Comprehensive placement management system built with Next.js and Node.js, featuring role-based authentication, job applications, interview scheduling, and analytics dashboard for students, companies, and administrators.",
       tags: ["Next.js", "Node.js", "PostgreSQL", "TypeScript", "JWT", "Tailwind CSS"],
-      image: "/placeholder.jpg",
+      image: "/projects/placementportal.webp",
       demoUrl: "https://placement-portal-g3c8.vercel.app/auth/login",
       repoUrl: "https://github.com",
       category: "web-dev"
@@ -258,7 +258,7 @@ export default function Portfolio() {
       title: "RAG Chatbot with Knowledge Graphs",
       description: "Advanced AI chatbot combining RAG (Retrieval Augmented Generation) with LLM and Knowledge Graphs for intelligent query processing and contextual understanding.",
       tags: ["RAG", "LLM", "Knowledge Graphs", "Python", "AI"],
-      image: "/placeholder.jpg",
+      image: "/projects/knowledgegraph.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Radiants_mosdac.git",
       category: "ai-ml"
@@ -267,7 +267,7 @@ export default function Portfolio() {
       title: "Chrome Keyword Highlighter Extension",
       description: "Chrome extension that searches and highlights keywords on webpages, provides contextual tag information, and includes optional AI summarization via ApyHub API with result storage and display.",
       tags: ["JavaScript", "Chrome Extension", "AI Summarization", "ApyHub API"],
-      image: "/placeholder.jpg",
+      image: "/projects/chromeextrnsion.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Highlighter_summarizer/tree/master",
       category: "web-dev"
@@ -276,7 +276,7 @@ export default function Portfolio() {
       title: "QR Code Ticketing System",
       description: "Secure event management solution with Streamlit frontend, JWT authentication, and MySQL backend. Features QR code generation, 24-hour token validity, and admin validation system.",
       tags: ["Streamlit", "JWT", "MySQL", "QR Code", "Python"],
-      image: "/placeholder.jpg",
+      image: "/projects/qrcodeAttendacne.webp",
       demoUrl: "https://qr-code-ticketing-system.streamlit.app",
       repoUrl: "https://github.com/suryaansh001/qr_code_ticketing",
       category: "web-dev"
@@ -285,7 +285,7 @@ export default function Portfolio() {
       title: "AI Financial Planner",
       description: "FastAPI-based financial planning application with AI-driven predictions, portfolio analysis, bank statement processing, and PDF report generation using DistilRoBERTa for sentiment analysis.",
       tags: ["FastAPI", "AI", "DistilRoBERTa", "Financial Analysis", "PDF Generation"],
-      image: "/placeholder.jpg",
+      image: "/projects/aiFinancial.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Finance",
       category: "ai-ml"
@@ -294,7 +294,7 @@ export default function Portfolio() {
       title: "GUNI 17-DOF Robot",
       description: "Comprehensive AI-powered robotic system with voice interaction, facial expressions, Next.js web interface, and IoT capabilities. Features real-time animated expressions, AI conversations, and MQTT integration.",
       tags: ["Robotics", "AI", "Next.js", "PyGame", "MQTT", "Voice Recognition"],
-      image: "/placeholder.jpg",
+      image: "/projects/placementportal.webp",
       demoUrl: "",
       repoUrl: "https://github.com",
       category: "robotics"
@@ -303,7 +303,7 @@ export default function Portfolio() {
       title: "VaxIntelliBio Nuclear Analysis",
       description: "AI-powered nuclear analysis report system using LLM and DNABERT for intelligent document processing and automated report generation with advanced biological data interpretation.",
       tags: ["DNABERT", "LLM", "Bioinformatics", "Document Analysis", "AI"],
-      image: "/placeholder.jpg",
+      image: "/projects/nuclear.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Vax_intelli_bio.git",
       category: "ai-ml"
@@ -312,11 +312,30 @@ export default function Portfolio() {
       title: "Smart Attendance System",
       description: "Automated attendance system using YOLOv8 for pose detection and CNN for face recognition. Features hand-raising gesture detection, real-time face verification, and anti-cheating mechanisms.",
       tags: ["YOLOv8", "CNN", "Computer Vision", "OpenCV", "Face Recognition"],
-      image: "/placeholder.jpg",
+      image: "/projects/attendance.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Attendance-system",
       category: "ai-ml"
-    }
+    },
+    {
+  title: "Disaster Human Detection (Thermal Imaging)",
+  description: "AI model that identifies trapped humans in disaster scenarios using thermal images for rescue operations.",
+  tags: ["Thermal Imaging", "Computer Vision", "YOLO", "AI"],
+  image: "/projects/thermalimaging.png",
+  demoUrl: "",
+  repoUrl: "#", // GitHub link pending
+  category: "ai-ml"
+},
+{
+  title: "EfficientDet + YOLO Hybrid Model",
+  description: "Hybrid object detection system combining EfficientDet and YOLO techniques with anchor-free detection, Mosaic augmentation, and dynamic head for LVIS dataset.",
+  tags: ["EfficientDet", "YOLO", "Object Detection", "Computer Vision", "LVIS Dataset"],
+  image: "/projects/efficientDET.png",
+  demoUrl: "",
+  repoUrl: "#", // GitHub link pending
+  category: "ai-ml"
+}
+
   ];
 
   const certifications = [
@@ -395,29 +414,29 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-x-hidden">
       <ScrollProgress />
       <FloatingNav />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative min-h-screen flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
           <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] max-h-screen">
+          <div className="space-y-4 sm:space-y-6 text-center lg:text-left max-w-full">
             <div className="inline-block">
               <div className="relative px-3 py-1 text-xs sm:text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
                 <span className="relative z-10">AI Developer & Software Engineer</span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></span>
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              <span className="block">Hi, I'm</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+            <h1 className="responsive-title text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight max-w-full">
+              <span className="block mb-2">Hi, I'm</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 block break-words hyphens-auto">
                 <DecryptedText
                   text="Suryaansh Sharma"
                   speed={100}
