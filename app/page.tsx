@@ -603,7 +603,7 @@ export default function Portfolio() {
                         My journey spans from robotics internships to AI model development, where I've built everything from healthcare prediction systems to humanoid robot integrations. I'm passionate about combining cutting-edge AI with practical applications.
                       </p>
                       <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
-                        Currently pursuing my degree while gaining hands-on experience through internships and freelance projects. I'm also the Co-Chair of the Competitive Programming Club at JKLU and actively mentor peers in algorithms and data structures.
+                        Currently pursuing my degree while gaining hands-on experience through internships and freelance projects. I'm also the Co-Chair of the Competitive Programming Club at JKLU till 2023-2024 and actively mentor peers in algorithms and data structures.
                       </p>
                     </div>
 

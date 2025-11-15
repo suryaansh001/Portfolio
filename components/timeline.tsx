@@ -33,9 +33,16 @@ const experiences = [
       "Conducted programming workshops in collaboration with NPTEL. Assisted students with Python concepts, debugging, and hands-on problem-solving.",
   },
   {
-    title: "Co-Chair, Competitive Programming Club",
+    title: "General Secretary - Council Of Technical Affairs",
     company: "JK Lakshmipat University",
-    period: "2023 - Present",
+    period: "Ongoing",
+    description:
+      "Leading technical initiatives and coordinating technical activities across various domains including programming, robotics, and innovation.",
+  },
+  {
+    title: "Co-Chair, Competitive Programming Club till 2023-2024",
+    company: "JK Lakshmipat University",
+    period: "2023 - 2024",
     description:
       "Organized coding contests, mentored peers in algorithms and problem-solving, and promoted a culture of competitive programming on campus.",
   },
