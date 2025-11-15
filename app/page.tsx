@@ -555,7 +555,7 @@ export default function Portfolio() {
                     {/* Profile Image */}
                     <div className="relative z-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-zinc-700/50">
                       <img
-                        src="/suryaansh.png"
+                        src="/suryaansh2.png"
                         alt="Suryaansh Sharma"
                         className="w-full h-full object-cover"
                       />

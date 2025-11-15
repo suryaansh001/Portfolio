@@ -6,11 +6,65 @@ import { Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useForm, ValidationError } from "@formspree/react"
+import { useState, useEffect } from "react"
+import emailjs from '@emailjs/browser'
+// import { useForm } from "@formspree/react"
 
 
 export function ContactForm() {
-  const [state, handleSubmit] = useForm("mjkoqjok");
+  // const [state, handleSubmit] = useForm("mjkoqjok");
+  const [submitting, setSubmitting] = useState(false)
+  const [succeeded, setSucceeded] = useState(false)
+
+  useEffect(() => {
+    emailjs.init("gjoWJBBYG4hxleaVY")
+  }, [])
+
+  const customHandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setSubmitting(true)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const templateParams = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    }
+
+    console.log('Attempting to send email with params:', templateParams)
+
+    try {
+      console.log('Trying EmailJS...')
+      await emailjs.send("service_9n3oj11", "template_5713oww", templateParams)
+      console.log('EmailJS success!')
+      setSucceeded(true)
+    } catch (error) {
+      console.error('EmailJS failed:', error)
+      console.log('EmailJS timed out, trying Formspree API directly...')
+      try {
+        const response = await fetch('https://formspree.io/f/mjkoqjok', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(templateParams),
+        })
+        if (response.ok) {
+          console.log('Formspree success!')
+          setSucceeded(true)
+        } else {
+          throw new Error('Formspree failed')
+        }
+      } catch (formspreeError) {
+        console.error('Formspree also failed:', formspreeError)
+        alert('Sorry, there was an error sending your message. Please try again later.')
+      }
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <motion.div
@@ -25,10 +79,10 @@ export function ContactForm() {
         <div className="relative">
           <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
 
-          {state.succeeded ? (
-            <div className="text-green-400 text-center py-8 text-lg font-semibold">Thank you for your message! I'll get back to you soon.</div>
+          {succeeded ? (
+            <div className="text-green-400 text-center py-8 text-lg font-semibold">Thank you for your message! I will get back to you soon.</div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={customHandleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Input
                   id="name"
@@ -47,7 +101,6 @@ export function ContactForm() {
                   required
                   className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
                 />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div className="space-y-2">
                 <Input
@@ -67,14 +120,13 @@ export function ContactForm() {
                   required
                   className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
                 />
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
-                disabled={state.submitting}
+                disabled={submitting}
               >
-                {state.submitting ? (
+                {submitting ? (
                   <>Sending...</>
                 ) : (
                   <>

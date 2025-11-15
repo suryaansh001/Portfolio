@@ -186,6 +186,7 @@ export default function Orb({
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     container.appendChild(gl.canvas);
+    gl.canvas.style.pointerEvents = 'none';
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
