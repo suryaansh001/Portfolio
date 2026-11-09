@@ -10,7 +10,7 @@ const SectionHeading = ({ title, subtitle }) => (
   </div>
 );
 
-const ProjectCard = ({ title, description, tags, image, demoUrl, repoUrl, category }) => (
+const ProjectCard = ({ title, description, tags, image, demoUrl, repoUrl, category, badge }) => (
   <div className="group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     
@@ -23,9 +23,10 @@ const ProjectCard = ({ title, description, tags, image, demoUrl, repoUrl, catego
         />
       </div>
       
-      <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
-        {title}
-      </h3>
+      <div className="flex items-center gap-2 mb-2">
+        <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">{title}</h3>
+        {badge && <span className="px-2 py-0.5 text-[10px] font-medium bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30 whitespace-nowrap">{badge}</span>}
+      </div>
       
       <p className="text-gray-400 text-sm mb-4 line-clamp-3">
         {description}
@@ -42,6 +43,7 @@ const ProjectCard = ({ title, description, tags, image, demoUrl, repoUrl, catego
         ))}
       </div>
       
+      {(demoUrl || repoUrl) && (
       <div className="flex gap-3">
         {demoUrl && (
           <a
@@ -66,6 +68,7 @@ const ProjectCard = ({ title, description, tags, image, demoUrl, repoUrl, catego
           </a>
         )}
       </div>
+      )}
     </div>
   </div>
 );
@@ -86,37 +89,74 @@ const FilterButton = ({ label, active, onClick, count }) => (
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "Agentic AI Framework",
+      description: "Custom multi-agent system with a Planner, Orchestrator, shared State Manager, specialized agents, and a dynamic tool registry. Integrates LLMs with deterministic Python tools for database querying, analytics, visualization, and multi-step task execution.",
+      tags: ["Agentic AI", "LLMs", "Python", "Tool Calling", "Groq", "FastAPI"],
+      image: "/projects/gen-agentic-ai-framework.png",
+      demoUrl: "",
+      repoUrl: "https://github.com/suryaansh001/EnterPriseAgentV1",
+      category: "ai-ml"
+    },
+    {
+      title: "AI OS",
+      description: "Linux-first local AI desktop assistant connecting LLM reasoning to filesystem, terminal, app, memory, RAG, Git, and calendar tools. Built with Tauri 2 + React + Rust and a Python orchestration service, with a human-in-the-loop approval layer for sensitive operations.",
+      tags: ["LLMs", "Tauri", "Rust", "React", "Python", "RAG", "Ollama"],
+      image: "/projects/gen-ai-os.png",
+      demoUrl: "",
+      repoUrl: "https://github.com/suryaansh001/AgentForDesktop-appv1-",
+      category: "ai-ml"
+    },
+    {
+      title: "GUNI Robot",
+      description: "AI-driven humanoid system integrating LLMs, computer vision, speech processing, and emotion analysis. Pipeline: Speech-to-Text -> Emotion Detection -> LLM -> Text-to-Speech, built on Raspberry Pi, Arduino, and Python/FastAPI to connect AI services with physical hardware.",
+      tags: ["Robotics", "LLMs", "Computer Vision", "FastAPI", "Raspberry Pi", "Arduino"],
+      image: "/projects/gen-guni-robot.png",
+      demoUrl: "",
+      repoUrl: "https://github.com/suryaansh001/guni_final",
+      category: "robotics"
+    },
+    {
+      title: "Fitness Ring AI",
+      description: "Emotion and stress recognition from physiological signals (HR, BVP/PPG, HRV, skin temperature, SpO2, accelerometer) using WESAD, Empatica4, and Oura Ring datasets. ML pipelines with NeuroKit2, pyHRV, and LightGBM classification on physiological and lifestyle features. Confidential company project — source code and demo are not publicly available.",
+      tags: ["Machine Learning", "LightGBM", "NeuroKit2", "pyHRV", "Python", "Signal Processing"],
+      image: "/projects/gen-fitness-ring-ai.png",
+      demoUrl: "",
+      repoUrl: "",
+      category: "ai-ml",
+      badge: "Confidential"
+    },
+    {
       title: "University Placement Portal",
       description: "Comprehensive placement management system built with Next.js and Node.js, featuring role-based authentication, job applications, interview scheduling, and analytics dashboard for students, companies, and administrators.",
       tags: ["Next.js", "Node.js", "PostgreSQL", "TypeScript", "JWT", "Tailwind CSS"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-placementportal.png",
       demoUrl: "https://placement-portal-g3c8.vercel.app/auth/login",
-      repoUrl: "https://github.com",
+      repoUrl: "https://github.com/suryaansh001?tab=repositories",
       category: "web-dev"
     },
     {
       title: "RAG Chatbot with Knowledge Graphs",
       description: "Advanced AI chatbot combining RAG (Retrieval Augmented Generation) with LLM and Knowledge Graphs for intelligent query processing and contextual understanding.",
       tags: ["RAG", "LLM", "Knowledge Graphs", "Python", "AI"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-knowledgegraph.png",
       demoUrl: "",
-      repoUrl: "https://github.com/suryaansh001/Radiants_mosdac.git",
+      repoUrl: "https://github.com/suryaansh001/Radiants_mosdac",
       category: "ai-ml"
     },
     {
       title: "Chrome Keyword Highlighter Extension",
       description: "Chrome extension that searches and highlights keywords on webpages, provides contextual tag information, and includes optional AI summarization via ApyHub API with result storage and display.",
       tags: ["JavaScript", "Chrome Extension", "AI Summarization", "ApyHub API"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-chromeextrnsion.png",
       demoUrl: "",
-      repoUrl: "https://github.com/suryaansh001/Highlighter_summarizer/tree/master",
+      repoUrl: "https://github.com/suryaansh001/Highlighter_summarizer",
       category: "web-dev"
     },
     {
       title: "QR Code Ticketing System",
       description: "Secure event management solution with Streamlit frontend, JWT authentication, and MySQL backend. Features QR code generation, 24-hour token validity, and admin validation system.",
       tags: ["Streamlit", "JWT", "MySQL", "QR Code", "Python"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-qrcodeAttendacne.png",
       demoUrl: "https://qr-code-ticketing-system.streamlit.app",
       repoUrl: "https://github.com/suryaansh001/qr_code_ticketing",
       category: "web-dev"
@@ -125,36 +165,45 @@ const ProjectsSection = () => {
       title: "AI Financial Planner",
       description: "FastAPI-based financial planning application with AI-driven predictions, portfolio analysis, bank statement processing, and PDF report generation using DistilRoBERTa for sentiment analysis.",
       tags: ["FastAPI", "AI", "DistilRoBERTa", "Financial Analysis", "PDF Generation"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-aiFinancial.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Finance",
       category: "ai-ml"
     },
     {
-      title: "GUNI 17-DOF Robot",
-      description: "Comprehensive AI-powered robotic system with voice interaction, facial expressions, Next.js web interface, and IoT capabilities. Features real-time animated expressions, AI conversations, and MQTT integration.",
-      tags: ["Robotics", "AI", "Next.js", "PyGame", "MQTT", "Voice Recognition"],
-      image: "/api/placeholder/600/400",
-      demoUrl: "",
-      repoUrl: "https://github.com",
-      category: "robotics"
-    },
-    {
       title: "VaxIntelliBio Nuclear Analysis",
       description: "AI-powered nuclear analysis report system using LLM and DNABERT for intelligent document processing and automated report generation with advanced biological data interpretation.",
       tags: ["DNABERT", "LLM", "Bioinformatics", "Document Analysis", "AI"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-nuclear.png",
       demoUrl: "",
-      repoUrl: "https://github.com/suryaansh001/Vax_intelli_bio.git",
+      repoUrl: "https://github.com/suryaansh001/Vax_intelli_bio",
       category: "ai-ml"
     },
     {
       title: "Smart Attendance System",
       description: "Automated attendance system using YOLOv8 for pose detection and CNN for face recognition. Features hand-raising gesture detection, real-time face verification, and anti-cheating mechanisms.",
       tags: ["YOLOv8", "CNN", "Computer Vision", "OpenCV", "Face Recognition"],
-      image: "/api/placeholder/600/400",
+      image: "/projects/gen-attendance.png",
       demoUrl: "",
       repoUrl: "https://github.com/suryaansh001/Attendance-system",
+      category: "ai-ml"
+    },
+    {
+      title: "Disaster Human Detection (Thermal Imaging)",
+      description: "AI model that identifies trapped humans in disaster scenarios using thermal images for rescue operations.",
+      tags: ["Thermal Imaging", "Computer Vision", "YOLO", "AI"],
+      image: "/projects/gen-thermalimaging.png",
+      demoUrl: "",
+      repoUrl: "https://github.com/suryaansh001?tab=repositories",
+      category: "ai-ml"
+    },
+    {
+      title: "EfficientDet + YOLO Hybrid Model",
+      description: "Hybrid object detection system combining EfficientDet and YOLO techniques with anchor-free detection, Mosaic augmentation, and dynamic head for LVIS dataset.",
+      tags: ["EfficientDet", "YOLO", "Object Detection", "Computer Vision", "LVIS Dataset"],
+      image: "/projects/gen-efficientDET.png",
+      demoUrl: "",
+      repoUrl: "https://github.com/suryaansh001?tab=repositories",
       category: "ai-ml"
     }
   ];
